@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <h2>Monthly Premium Calculator</h2>
+
+  <form [formGroup]="form" class="mt-3">
+
+    <div class="mb-3">
+      <label>Name</label>
+      <input class="form-control" formControlName="name">
+    </div>
+
+    <div class="mb-3">
+      <label>Age Next Birthday</label>
+      <input type="number" class="form-control" formControlName="ageNextBirthday">
+    </div>
+
+    <div class="mb-3">
+      <label>Date of Birth (MM/YYYY)</label>
+      <input class="form-control" formControlName="dob">
+    </div>
+
+    <div class="mb-3">
+      <label>Occupation</label>
+      <select class="form-control" formControlName="occupationId">
+        <option value="">Select</option>
+        <option *ngFor="let occ of occupations" [value]="occ.id">
+          {{ occ.name }} ({{ occ.rating }})
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label>Death – Sum Insured</label>
+      <input type="number" class="form-control" formControlName="deathSumInsured">
+    </div>
+
+    <button class="btn btn-primary" type="button" (click)="calculate()">
+      Calculate Premium
+    </button>
+
+  </form>
+
+  <div *ngIf="premium()" class="alert alert-info mt-3">
+    <b>Monthly Premium: {{ premium() }}</b>
+  </div>
+</div>
