@@ -18,6 +18,12 @@ namespace premium_calculator_api
             
             builder.Services.AddScoped<IPremiumService, PremiumService>();
 
+            builder.Services.AddCors(options =>{
+             options.AddPolicy("PremiumCalculatorUI",
+                 policy =>
+                    {
+                     policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod(); });});
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -28,6 +34,8 @@ namespace premium_calculator_api
             }
 
             app.UseHttpsRedirection();
+             // Enable CORS
+            app.UseCors("PremiumCalculatorUI");
             // Global Exception Middleware
             app.UseMiddleware<GlobalExceptionMiddleware>();
             app.UseAuthorization();
