@@ -1,3 +1,4 @@
+using premium_calculator_api.CustomMiddlerWare;
 using premium_calculator_api.Services;
 namespace premium_calculator_api
 {
@@ -12,6 +13,7 @@ namespace premium_calculator_api
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddTransient<GlobalExceptionMiddleware>();
             builder.Services.AddSwaggerGen();
             
             builder.Services.AddScoped<IPremiumService, PremiumService>();
@@ -26,7 +28,8 @@ namespace premium_calculator_api
             }
 
             app.UseHttpsRedirection();
-
+            // Global Exception Middleware
+            app.UseMiddleware<GlobalExceptionMiddleware>();
             app.UseAuthorization();
 
 
