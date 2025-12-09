@@ -19,7 +19,37 @@ This service is consumed by an Angular 17 frontend application.
 
 ---
 
-## 📐 Premium Formula
+# Premium UI – Insurance Premium Calculator (Angular 17)
 
-The monthly premium is calculated as:
+This Angular 17 application provides a user interface for calculating monthly insurance premiums based on user input and occupation risk factors.  
+It communicates with the PremiumAPI (.NET 8 Web API) to fetch occupations and calculate premium amounts.
+
+---
+
+## 🚀 Features
+
+- Modern **Angular 17 Standalone Components**
+- Reactive Forms with validation
+- Automatic premium calculation on occupation change
+- Service-based API integration using HttpClient
+- Bootstrap UI for responsive layout
+- Clean folder structure optimized for interview review
+
+---
+
+## 🖥️ Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| UI Framework | Angular 17 (standalone architecture) |
+| Styling | Bootstrap 5 |
+| HTTP | Angular HttpClient |
+| State Handling | Signals + Reactive Forms |
+| Routing | Angular Standalone Router |
+
+
+
+
+
+
 
