@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\premium-calculator-api.props" />
+</Project>
