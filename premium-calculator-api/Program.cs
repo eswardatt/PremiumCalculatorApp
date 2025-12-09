@@ -1,4 +1,4 @@
-
+using premium_calculator_api.Services;
 namespace premium_calculator_api
 {
     public class Program
@@ -14,6 +14,8 @@ namespace premium_calculator_api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             
+            builder.Services.AddScoped<IPremiumService, PremiumService>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
